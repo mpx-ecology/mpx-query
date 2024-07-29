@@ -1,6 +1,6 @@
 {
   "name": "@mpxjs/mpx-query",
-  "version": "0.0.1",
+  "version": "0.0.1-beta.0",
   "description": "Hooks for managing, caching and syncing asynchronous and remote data in Mpx",
   "author": "Mater",
   "license": "MIT",
