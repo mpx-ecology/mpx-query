@@ -29,8 +29,8 @@ createPage({
         list.data.value
         console.log(list.data.value)
       }
-      console.dir(list.error.value)
-      console.dir(list.failureReason.value)
+      console.log(list.error.value)
+      console.log(list.failureReason.value)
     })
     const refetch = () => {
       list.refetch()

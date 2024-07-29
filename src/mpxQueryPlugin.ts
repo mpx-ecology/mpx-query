@@ -1,4 +1,5 @@
-import { isServer } from '@tanstack/query-core'
+import { focusManager } from '@tanstack/query-core'
+import mpx from '@mpxjs/core'
 
 import { QueryClient } from './queryClient'
 import { getClientKey } from './utils'
@@ -25,6 +26,25 @@ export type MpxQueryPluginOptions = ConfigOptions | ClientOptions
 
 export const MpxQueryPlugin = {
   install: (app: any, options: MpxQueryPluginOptions = {}) => {
+    focusManager.setEventListener((handleFocus) => {
+      const onShow = () => {
+        console.log(1111, 'show')
+        handleFocus(true)
+      }
+      const onHide = () => {
+        console.log(2222, 'hide')
+
+        handleFocus(false)
+      }
+      mpx.onAppShow(onShow)
+      mpx.onAppHide(onHide)
+      return () => {
+        // Be sure to unsubscribe if a new handler is set
+        mpx.offAppShow(onShow)
+        mpx.offAppHide(onHide)
+      }
+    })
+
     const clientkeyMap = new Map()
     const clientKey = getClientKey(options.queryClientKey)
     let client: QueryClient
@@ -37,9 +57,7 @@ export const MpxQueryPlugin = {
       client = new QueryClient(clientConfig)
     }
 
-    if (!isServer) {
-      client.mount()
-    }
+    client.mount()
 
     let persisterUnmount = () => {
       // noop

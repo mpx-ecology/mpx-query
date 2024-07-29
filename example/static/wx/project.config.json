@@ -2,7 +2,7 @@
   "setting": {
     "newFeature": true,
     "urlCheck": true,
-    "es6": false,
+    "es6": true,
     "postcss": true,
     "minified": false,
     "checkSiteMap": false,
@@ -11,7 +11,8 @@
       "ignore": [],
       "disablePlugins": [],
       "outputPath": ""
-    }
+    },
+    "enhance": true
   },
   "appid": "wx603cbad725e536bf",
   "projectname": "example",

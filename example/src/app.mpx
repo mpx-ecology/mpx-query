@@ -3,8 +3,8 @@ import mpx, { createApp } from '@mpxjs/core'
 import apiProxy from '@mpxjs/api-proxy'
 import { MpxQueryPlugin } from '@mpxjs/mpx-query'
 
-mpx.use(MpxQueryPlugin)
 mpx.use(apiProxy, { usePromise: true })
+mpx.use(MpxQueryPlugin)
 
 createApp({})
 </script>
