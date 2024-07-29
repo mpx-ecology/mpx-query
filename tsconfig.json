@@ -1,0 +1,20 @@
+{
+  "compilerOptions": {
+    "outDir": "dist",
+    "target": "ESNext",
+    "allowJs": true,
+    "module": "ESNext",
+    "moduleResolution": "node",
+    "strict": true,
+    "declaration": true,
+    "sourceMap": true,
+    "noImplicitOverride": true,
+    "noUnusedLocals": true,
+    "esModuleInterop": true,
+    "baseUrl": ".",
+    "skipLibCheck": true,
+    "paths": {}
+  },
+  "include": ["src"],
+  "exclude": ["node_modules", "example"]
+}
