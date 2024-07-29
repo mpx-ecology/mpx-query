@@ -1,0 +1,60 @@
+<template>
+  <view>status: {{ list.status.value }}</view>
+  <view>fetchStatus: {{ list.fetchStatus.value }}</view>
+  <view>isFetching: {{ list.isFetching.value }}</view>
+  <view>isFetched: {{ list.isFetched.value }}</view>
+  <view>isSuccess: {{ list.isSuccess.value }}</view>
+  <view>isRefetching: {{ list.isRefetching.value }}</view>
+  <view>isInitialLoading: {{ list.isInitialLoading.value }}</view>
+  <view>isPaused: {{ list.isPaused.value }}</view>
+  <view>isError: {{ list.isError.value }}</view>
+  <view>error: {{ list.error.value }}</view>
+  <view>failureReason: {{ list.failureReason.value }}</view>
+  <view>value: {{ list.data.value }}</view>
+  <button bindtap="refetch">refech</button>
+  <button bindtap="changeId">changeId</button>
+  <button bindtap="makeError">makeError</button>
+</template>
+
+<script lang="ts">
+import { createPage, ref, watchEffect } from '@mpxjs/core'
+import { useList } from './useList'
+
+createPage({
+  setup() {
+    const id = ref(4)
+    const list = useList(id)
+    watchEffect(() => {
+      if (list.isFetched.value) {
+        list.data.value
+        console.log(list.data.value)
+      }
+      console.dir(list.error.value)
+      console.dir(list.failureReason.value)
+    })
+    const refetch = () => {
+      list.refetch()
+    }
+    const changeId = () => {
+      id.value++
+    }
+    const makeError = () => {
+      id.value = -1
+    }
+    return {
+      list,
+      refetch,
+      changeId,
+      makeError
+    }
+  }
+})
+</script>
+
+<script type="application/json">
+{
+  "usingComponents": {
+    "list": "../components/list"
+  }
+}
+</script>

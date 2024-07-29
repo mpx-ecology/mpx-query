@@ -8,12 +8,10 @@ export function useQueryClient(id = ''): QueryClient {
   // eslint-disable-next-line @typescript-eslint/ban-ts-comment
   // @ts-ignore
   const queryClient = mpx.getClientKey<QueryClient>(key)
-
   if (!queryClient) {
     throw new Error(
-      "No 'queryClient' found in Vue context, use 'VueQueryPlugin' to properly initialize the library."
+      "No 'queryClient' found in Mpx context, use 'MpxQueryPlugin' to properly initialize the library."
     )
   }
-
   return queryClient
 }

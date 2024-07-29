@@ -45,6 +45,9 @@ importers:
       '@vitest/coverage-v8':
         specifier: ^1.1.0
         version: 1.6.0(vitest@1.6.0(@types/node@18.19.42)(jsdom@20.0.3))
+      abortcontroller-polyfill:
+        specifier: ^1.7.5
+        version: 1.7.5
       eslint:
         specifier: ^7.28.0
         version: 7.32.0
@@ -924,6 +927,9 @@ packages:
   abab@2.0.6:
     resolution: {integrity: sha512-j2afSsaIENvHZN2B8GOpF566vZ5WVk5opAiMTvWgaQT8DkbOqsTfvNAvHoRGU2zzP8cPoqys+xHTRDWW8L+/BA==}
     deprecated: Use your platform's native atob() and btoa() methods instead
+
+  abortcontroller-polyfill@1.7.5:
+    resolution: {integrity: sha512-JMJ5soJWP18htbbxJjG7bG6yuI6pRhgJ0scHHTfkUjf6wjP912xZWvM+A4sJK3gqd9E8fcPbDnOefbA9Th/FIQ==}
 
   acorn-globals@7.0.1:
     resolution: {integrity: sha512-umOSDSDrfHbTNPuNpC2NSnnA3LUrqpevPb4T9jRx4MagXNS0rs+gwiTcAvqCRmsD6utzsrzNt+ebm00SNWiC3Q==}
@@ -4876,6 +4882,8 @@ snapshots:
       through: 2.3.8
 
   abab@2.0.6: {}
+
+  abortcontroller-polyfill@1.7.5: {}
 
   acorn-globals@7.0.1:
     dependencies:

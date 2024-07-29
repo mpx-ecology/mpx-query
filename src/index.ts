@@ -1,36 +1,44 @@
+import { AbortController } from 'abortcontroller-polyfill/dist/abortcontroller'
+
+const g = typeof window !== 'undefined' ? window : typeof global === 'object' ? global : this
+
+if (g && !g.AbortController) {
+  g.AbortController = AbortController
+}
+
 export * from '@tanstack/query-core'
 
+export { MpxQueryPlugin } from './mpxQueryPlugin'
 export { useQueryClient } from './useQueryClient'
-export { VueQueryPlugin } from './vueQueryPlugin'
 
-export { QueryClient } from './queryClient'
-export { QueryCache } from './queryCache'
-export { queryOptions } from './queryOptions'
 export { infiniteQueryOptions } from './infiniteQueryOptions'
 export type {
   DefinedInitialDataInfiniteOptions,
   UndefinedInitialDataInfiniteOptions
 } from './infiniteQueryOptions'
 export { MutationCache } from './mutationCache'
-export { useQuery } from './useQuery'
-export { useQueries } from './useQueries'
+export { QueryCache } from './queryCache'
+export { QueryClient } from './queryClient'
+export { queryOptions } from './queryOptions'
 export { useInfiniteQuery } from './useInfiniteQuery'
-export { useMutation } from './useMutation'
 export { useIsFetching } from './useIsFetching'
+export { useMutation } from './useMutation'
 export { useIsMutating, useMutationState } from './useMutationState'
+export { useQueries } from './useQueries'
+export { useQuery } from './useQuery'
 export { VUE_QUERY_CLIENT } from './utils'
 
-export type {
-  UseQueryOptions,
-  UseQueryReturnType,
-  UseQueryDefinedReturnType
-} from './useQuery'
+export type { MpxQueryPluginOptions } from './mpxQueryPlugin'
 export type {
   UseInfiniteQueryOptions,
   UseInfiniteQueryReturnType
 } from './useInfiniteQuery'
-export type { UseMutationOptions, UseMutationReturnType } from './useMutation'
-export type { UseQueriesOptions, UseQueriesResults } from './useQueries'
-export type { MutationFilters, MutationStateOptions } from './useMutationState'
 export type { QueryFilters } from './useIsFetching'
-export type { VueQueryPluginOptions } from './vueQueryPlugin'
+export type { UseMutationOptions, UseMutationReturnType } from './useMutation'
+export type { MutationFilters, MutationStateOptions } from './useMutationState'
+export type { UseQueriesOptions, UseQueriesResults } from './useQueries'
+export type {
+  UseQueryDefinedReturnType,
+  UseQueryOptions,
+  UseQueryReturnType
+} from './useQuery'

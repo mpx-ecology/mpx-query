@@ -21,10 +21,10 @@ interface ClientOptions extends CommonOptions {
   queryClient?: QueryClient
 }
 
-export type VueQueryPluginOptions = ConfigOptions | ClientOptions
+export type MpxQueryPluginOptions = ConfigOptions | ClientOptions
 
-export const VueQueryPlugin = {
-  install: (app: any, options: VueQueryPluginOptions = {}) => {
+export const MpxQueryPlugin = {
+  install: (app: any, options: MpxQueryPluginOptions = {}) => {
     const clientkeyMap = new Map()
     const clientKey = getClientKey(options.queryClientKey)
     let client: QueryClient
@@ -72,6 +72,8 @@ export const VueQueryPlugin = {
 
     clientkeyMap.set(clientKey, client)
 
-    app.getClientKey = (clientKey: any) => clientkeyMap.get(clientKey)
+    app.getClientKey = (clientKey: any) => {
+      return clientkeyMap.get(clientKey)
+    }
   }
 }
