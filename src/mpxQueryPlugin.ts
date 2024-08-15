@@ -92,7 +92,7 @@ export const MpxQueryPlugin = {
       app.onUnmount(cleanup)
     } else {
       const originalUnmount = app.unmount
-      app.unmount = function vueQueryUnmount() {
+      app.unmount = function mpxQueryUnmount() {
         cleanup()
         originalUnmount()
       }
