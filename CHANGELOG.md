@@ -1,3 +1,12 @@
+## [0.0.1](https://github.com/mpx-ecology/mpx-query/compare/0.0.1-beta.1...0.0.1) (2024-08-15)
+
+
+### Bug Fixes
+
+* example ([ff82a31](https://github.com/mpx-ecology/mpx-query/commit/ff82a31a2ccf9fe72385d3d1f9a982ced4d2a905))
+* vue query ([80ed384](https://github.com/mpx-ecology/mpx-query/commit/80ed384cf2cac5c2a80e8d226746afe827a7e63e))
+* vue to mpx ([76e6acb](https://github.com/mpx-ecology/mpx-query/commit/76e6acb876b8c7212d89664145727e101f5e6837))
+
 ## [0.0.1-beta.1](https://github.com/mpx-ecology/mpx-query/compare/0.0.1-beta.0...0.0.1-beta.1) (2024-07-29)
 
 
