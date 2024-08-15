@@ -1,4 +1,5 @@
 <template>
+  <view>page: {{ page }} </view>
   <view>status: {{ list.status.value }}</view>
   <view>fetchStatus: {{ list.fetchStatus.value }}</view>
   <view>isFetching: {{ list.isFetching.value }}</view>
@@ -12,7 +13,7 @@
   <view>failureReason: {{ list.failureReason.value }}</view>
   <view>value: {{ list.data.value }}</view>
   <button bindtap="refetch">refech</button>
-  <button bindtap="changeId">changeId</button>
+  <button bindtap="changePage">changePage</button>
   <button bindtap="makeError">makeError</button>
 </template>
 
@@ -22,11 +23,10 @@ import { useList } from './useList'
 
 createPage({
   setup() {
-    const id = ref(4)
-    const list = useList(id)
+    const page = ref(1)
+    const list = useList(page)
     watchEffect(() => {
       if (list.isFetched.value) {
-        list.data.value
         console.log(list.data.value)
       }
       console.log(list.error.value)
@@ -35,17 +35,18 @@ createPage({
     const refetch = () => {
       list.refetch()
     }
-    const changeId = () => {
-      id.value++
+    const changePage = () => {
+      page.value++
     }
     const makeError = () => {
-      id.value = -1
+      page.value = -1
     }
     return {
       list,
       refetch,
-      changeId,
-      makeError
+      changePage,
+      makeError,
+      page
     }
   }
 })
