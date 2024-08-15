@@ -35,12 +35,12 @@ import type {
 
 export class QueryClient extends QC {
   constructor(config: QueryClientConfig = {}) {
-    const vueQueryConfig = {
+    const mpxQueryConfig = {
       defaultOptions: config.defaultOptions,
       queryCache: config.queryCache || new QueryCache(),
       mutationCache: config.mutationCache || new MutationCache()
     }
-    super(vueQueryConfig)
+    super(mpxQueryConfig)
   }
 
   isRestoring: Ref<boolean> = ref(false)

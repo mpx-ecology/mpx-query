@@ -20,7 +20,7 @@ export { useMutation } from './useMutation'
 export { useIsMutating, useMutationState } from './useMutationState'
 export { useQueries } from './useQueries'
 export { useQuery } from './useQuery'
-export { VUE_QUERY_CLIENT } from './utils'
+export { MPX_QUERY_CLIENT } from './utils'
 
 export type { MpxQueryPluginOptions } from './mpxQueryPlugin'
 export type {
