@@ -19,7 +19,7 @@
   "description": "A mpx project",
   "condition": {},
   "compileType": "miniprogram",
-  "libVersion": "3.5.1",
+  "libVersion": "latest",
   "packOptions": {
     "ignore": [],
     "include": []

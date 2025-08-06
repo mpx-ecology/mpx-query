@@ -2,7 +2,7 @@ import { focusManager, onlineManager } from '@tanstack/query-core'
 import mpx from '@mpxjs/core'
 
 import { QueryClient } from './queryClient'
-import { getClientKey } from './utils'
+import { getClientKey, IS_RN } from './utils'
 import type { QueryClientConfig } from '@tanstack/query-core'
 
 type ClientPersister = (client: QueryClient) => [() => void, Promise<void>]
@@ -42,18 +42,21 @@ export const MpxQueryPlugin = {
       }
     })
 
-    onlineManager.setEventListener((handleOnline) => {
-      const onNetworkStatusChange = (
-        res: WechatMiniprogram.OnNetworkStatusChangeListenerResult
-      ) => {
-        handleOnline(res.isConnected)
-      }
-      mpx.onNetworkStatusChange(onNetworkStatusChange)
-      return () => {
-        // Be sure to unsubscribe if a new handler is set
-        mpx.offNetworkStatusChange(onNetworkStatusChange as any)
-      }
-    })
+    if (!IS_RN) {
+      // RN does not support network status change event
+      onlineManager.setEventListener((handleOnline) => {
+        const onNetworkStatusChange = (
+          res: WechatMiniprogram.OnNetworkStatusChangeListenerResult
+        ) => {
+          handleOnline(res.isConnected)
+        }
+        mpx.onNetworkStatusChange(onNetworkStatusChange)
+        return () => {
+          // Be sure to unsubscribe if a new handler is set
+          mpx.offNetworkStatusChange(onNetworkStatusChange as any)
+        }
+      })
+    }
 
     const clientkeyMap = new Map()
     const clientKey = getClientKey(options.queryClientKey)

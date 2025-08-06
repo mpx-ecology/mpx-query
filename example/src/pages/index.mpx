@@ -19,12 +19,19 @@
 
 <script lang="ts">
 import { createPage, ref, watchEffect } from '@mpxjs/core'
-import { useList } from './useList'
+import { useQuery } from '@mpxjs/mpx-query'
+import { getList } from '../api'
+
+const useList = () => useQuery({
+  queryKey: ['todos'],
+  queryFn: getList,
+  refetchOnMount: false
+})
 
 createPage({
   setup() {
     const page = ref(1)
-    const list = useList(page)
+    const list = useList()
     watchEffect(() => {
       if (list.isFetched.value) {
         console.log(list.data.value)

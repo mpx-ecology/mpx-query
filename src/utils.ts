@@ -121,3 +121,5 @@ export function shouldThrowError<T extends (...args: Array<any>) => boolean>(
 
   return !!throwOnError
 }
+
+export const IS_RN = __mpx_mode__ === 'android' || __mpx_mode__ === 'ios' || __mpx_mode__ === 'harmony'

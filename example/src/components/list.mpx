@@ -1,17 +1,25 @@
 <template>
   <view class="list">
-    <view wx:for="{{list}}" wx:key="*this">{{item}}</view>
+    <view wx:for="{{listData}}" wx:key="*this">{{item}}</view>
   </view>
 </template>
 
 <script lang="ts">
 import { createComponent } from '@mpxjs/core'
+import { useQuery } from '@mpxjs/mpx-query'
+import { getList } from '../api'
+
+const useList = () => useQuery({
+  queryKey: ['todos'],
+  queryFn: getList
+})
 
 createComponent({
-  properties: {
-    list: {
-      type: Array,
-      value: []
+  setup() {
+    const list = useList()
+
+    return {
+      listData: list.data
     }
   }
 })

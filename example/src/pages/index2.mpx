@@ -1,0 +1,42 @@
+<template>
+  <view>
+    <text>index2</text>
+    <view>{{ list }}</view>
+    <button bindtap="getData">获取数据</button>
+  </view>
+</template>
+
+<script lang="ts">
+import { createPage } from '@mpxjs/core'
+import { useQuery } from '@mpxjs/mpx-query'
+import { getList } from '../api'
+
+const useList = () => useQuery({
+  queryKey: ['todos'],
+  queryFn: getList,
+  refetchOnMount: false
+})
+
+createPage({
+  setup() {
+    const list = useList()
+
+    const getData = () => {
+      list.refetch()
+    }
+
+    return {
+      list: list.data,
+      getData
+    }
+  }
+})
+</script>
+
+<script type="application/json">
+  {
+    "usingComponents": {
+
+    }
+  }
+</script>

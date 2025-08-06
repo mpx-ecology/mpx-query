@@ -1,4 +1,4 @@
-<script lang="ts">
+<script>
 import mpx, { createApp } from '@mpxjs/core'
 import apiProxy from '@mpxjs/api-proxy'
 import { MpxQueryPlugin } from '@mpxjs/mpx-query'
@@ -6,16 +6,33 @@ import { MpxQueryPlugin } from '@mpxjs/mpx-query'
 mpx.use(apiProxy, { usePromise: true })
 mpx.use(MpxQueryPlugin)
 
-createApp({})
+mpx.onError((err) => {
+  console.log('>>> jsError', (err?.message || '') + (err?.stack || '') || err)
+  // 可在此处进行Omega上报
+})
+
+mpx.config.errorHandler = (msg = '', location = '', error) => {
+  console.log('>>> errorHandler', msg, location, error && error.stack)
+  // 可在此处进行Omega上报
+}
+
+createApp({
+  onLaunch() {
+    //
+  }
+})
 </script>
 
 <style>
+  /*此处编写全局样式*/
 </style>
 
 <script type="application/json">
-{
-  "pages": ["./pages/index"]
-}
+  {
+    "pages": [
+      "./pages/index",
+    ]
+  }
 </script>
 
 <!--也可以通过以下形式用js输出json，便于书写注释和使用条件编译-->
