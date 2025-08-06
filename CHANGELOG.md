@@ -1,3 +1,11 @@
+## [0.0.2-0](https://github.com/mpx-ecology/mpx-query/compare/0.0.1...0.0.2-0) (2025-08-06)
+
+
+### Bug Fixes
+
+* rn env not support network status check ([fcf09b1](https://github.com/mpx-ecology/mpx-query/commit/fcf09b1a950950f0db7a173580dd633216272aec))
+* test ([e631120](https://github.com/mpx-ecology/mpx-query/commit/e631120c1fdfb1e1361678b158e23db718c9c8f2))
+
 ## [0.0.1](https://github.com/mpx-ecology/mpx-query/compare/0.0.1-beta.1...0.0.1) (2024-08-15)
 
 
