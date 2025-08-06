@@ -13,6 +13,7 @@ export default defineConfig({
   },
   define: {
     __mpx_mode__: '"wx"',
-    wx: {}
+    wx: {},
+    mpxGlobal: {}
   }
 })
