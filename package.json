@@ -1,6 +1,6 @@
 {
   "name": "@mpxjs/mpx-query",
-  "version": "0.0.2-0",
+  "version": "0.0.2",
   "description": "Hooks for managing, caching and syncing asynchronous and remote data in Mpx",
   "repository": {
     "type": "git"
